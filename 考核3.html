@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+    <title>todoList</title>
+    <link rel="stylesheet" type="text/css" href="考核3.css">
+</head>
+<body>
+   <div class="todobody">
+       <div class="title">Todos</div>
+       <div class="container">
+           <div class="line"></div>
+           <div class="header"> 
+                <input v-model="inputValue" class="newtodo" type="text" placeholder="请输入待办事项"/>
+                <a  class="add" href="#" v-on:click="add">+</a>
+            </div>
+            <ul class="content">
+                <li  class="todo" v-show="list.length==0">
+                    <span class="tip">在输入框输入内容后点击加号添加todo条目,点击修改更改对应的todo条目</span>
+                </li>
+                <li class="todo" v-for="(item,index) in list">
+                    <div class="item">
+                        <span class="name">{{index+1}}. {{item}}</span>
+                        <a class="namebtn" href="#" v-on:click="change(index)">修改</a>
+                        <a class="namebtn" href="#" v-on:click="remove(index)">×</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="footer">
+                <span>{{list.length}} item left</span>
+                <a class="footerbtn" href="#" v-on:click="clear()">清空</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="考核3.js"></script>
+</body>
+</html>

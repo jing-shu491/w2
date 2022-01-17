@@ -1,0 +1,79 @@
+.title {
+    margin: 0 auto;        
+    text-align: center;
+    font-size: 250%;
+}
+.container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.line {
+    background-color: #e7e7e7;
+    height: 1px;
+}
+.header {
+    height: 50px;        
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}    
+.add {
+    margin: 0 10px 10px;
+    text-align: center;    
+    font-size: 50px;
+    text-decoration: none;    
+}    
+.newtodo {
+    flex: 1;    
+    height: 40px;
+    margin-right: 10px;
+    border: 0;
+    font-size: 30px;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+} 
+.todo {
+    border: 1px solid #e7e7e7;    
+    border-radius: 5px;
+    margin: 0 10px;
+    margin-right: 5vw;
+    display: flex;
+    flex-direction: column;
+}    
+.item {
+    height: auto;    
+    border-bottom: 1px solid #e7e7e7;
+    display: flex;
+    align-items: center;
+}
+.item:last-child {
+    border-bottom: 0px solid #e7e7e7;
+}
+.tip {
+    height: auto; 
+    font-size: 25px;
+    text-align: center;
+}
+.name {
+    font-size: 30px;
+    flex: 1;    
+}
+.namebtn {
+    margin: 0 10px;
+    text-decoration: none;    
+}
+.footer {
+    margin: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.footerbtn {
+    border: 1px solid #EED4D4;
+    border-radius: 5px;   
+    text-decoration: none;     
+}
