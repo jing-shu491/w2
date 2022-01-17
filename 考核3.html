@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<head>
+    <title>todoList</title>
+    <style>
+        .title {
+            margin: 0 auto;        
+            text-align: center;
+            font-size: 250%;
+        }
+        .container {
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .line {
+            background-color: #e7e7e7;
+            height: 1px;
+        }
+        .header {
+            height: 50px;        
+            border: 1px solid #e7e7e7;
+            border-radius: 5px;
+            margin: 10px;
+            display: flex;
+            align-items: center;
+        }    
+        .add {
+            margin: 0 10px 10px;
+            text-align: center;    
+            font-size: 50px;
+            text-decoration: none;    
+        }    
+        .newtodo {
+            flex: 1;    
+            height: 40px;
+            margin-right: 10px;
+            border: 0;
+            font-size: 30px;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+        } 
+        .todo {
+            border: 1px solid #e7e7e7;    
+            border-radius: 5px;
+            margin: 0 10px;
+            margin-right: 5vw;
+            display: flex;
+            flex-direction: column;
+        }    
+        .item {
+            height: auto;    
+            border-bottom: 1px solid #e7e7e7;
+            display: flex;
+            align-items: center;
+        }
+        .item:last-child {
+            border-bottom: 0px solid #e7e7e7;
+        }
+        .tip {
+            height: auto; 
+            font-size: 25px;
+            text-align: center;
+        }
+        .name {
+            font-size: 30px;
+            flex: 1;    
+        }
+        .namebtn {
+            margin: 0 10px;
+            text-decoration: none;    
+        }
+        .footer {
+            margin: 10px 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .footerbtn {
+            border: 1px solid #EED4D4;
+            border-radius: 5px;   
+            text-decoration: none;     
+        }
+    </style>
+</head>
+<body>
+   <div class="todobody">
+       <div class="title">Todos</div>
+       <div class="container">
+           <div class="line"></div>
+           <div class="header"> 
+                <input v-model="inputValue" class="newtodo" type="text" placeholder="请输入待办事项"/>
+                <a  class="add" href="#" v-on:click="add">+</a>
+            </div>
+            <ul class="content">
+                <li  class="todo" v-show="list.length==0">
+                    <span class="tip">在输入框输入内容后点击加号添加todo条目,点击修改更改对应的todo条目</span>
+                </li>
+                <li class="todo" v-for="(item,index) in list">
+                    <div class="item">
+                        <span class="name">{{index+1}}. {{item}}</span>
+                        <a class="namebtn" href="#" v-on:click="change(index)">修改</a>
+                        <a class="namebtn" href="#" v-on:click="remove(index)">×</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="footer">
+                <span>{{list.length}} item left</span>
+                <a class="footerbtn" href="#" v-on:click="clear()">清空</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        var app=new Vue({
+            el:".todobody",
+            data:{
+                list:[],
+                inputValue:"",
+            },
+            methods:{
+                add:function(){
+                    if (this.inputValue!=""){
+                        this.list.push(this.inputValue);
+                        this.inputValue="";
+                    }
+                },
+                remove:function(index){
+                    this.list.splice(index,1);
+                },
+                change:function(index){
+                    if (this.inputValue!=""){
+                        this.list.splice(index,1,this.inputValue);
+                        this.inputValue="";
+                    }
+                },
+                clear:function(){
+                    this.list=[];
+                }
+            },
+        })
+   </script>
+</body>
+</html>
